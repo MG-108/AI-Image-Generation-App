@@ -15,7 +15,7 @@ const App = () => {
         <Link to="/">
           <img src={logo} alt="logo" className="w-28 object-contain" />
         </Link>
-        {/* BUTTON */}
+        {/* BUTTON to CreatePost */}
         <Link
           to="/create-post"
           className="rounded-md bg-[#6469ff] px-4
