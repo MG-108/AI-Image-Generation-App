@@ -1,4 +1,5 @@
-import { surpriseMePrompts } from '../constants';
+import FileSaver from "file-saver";
+import { surpriseMePrompts } from "../constants";
 
 // to get a number between 1 and 49
 export function getRandomPrompt(prompt) {
@@ -9,4 +10,8 @@ export function getRandomPrompt(prompt) {
   if (randomPrompt === prompt) return getRandomPrompt(prompt);
 
   return randomPrompt;
+}
+
+export async function downloadImage(_id, photo) {
+  FileSaver.saveAs(photo, `download-${_id}.jpg`);
 }
