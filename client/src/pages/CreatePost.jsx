@@ -89,6 +89,7 @@ const CreatePost = () => {
       {/* FORMS */}
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
+          {/* name */}
           <FormField
             labelName="Your Name"
             type="text"
@@ -97,6 +98,7 @@ const CreatePost = () => {
             value={form.name}
             handleChange={handleChange}
           />
+          {/* prompt to generate the image */}
           <FormField
             labelName="Prompt"
             type="text"
