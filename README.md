@@ -1,4 +1,4 @@
-<h1>Filmpire</h1>
+<h1>MG-DALL-E</h1>
 
 <!-- IMAGE -->
 
@@ -8,6 +8,7 @@
 <h2>Application Features</h2>
 
 <h2>Technologies used</h2>
+<!-- Front-end - Backend -->
 <ul>
   <li><a href="https://reactjs.org/">React</a> - JavaScript library for building user interfaces</li>
   <li><a href="https://github.com/axios/axios">axios</a> - Promise based HTTP client for the browser and node.js</li>
