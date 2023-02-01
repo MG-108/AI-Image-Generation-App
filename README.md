@@ -1,5 +1,6 @@
 <h1>MG-DALL-E</h1>
-![mg-dall-e](https://user-images.githubusercontent.com/109861614/216187488-d0049e5a-6ab2-488b-9407-71ac4c3e3e6b.png)
+![mg-dall-e1](https://user-images.githubusercontent.com/109861614/216188372-d89643ee-3027-4d5e-8ece-5ebd0df467cf.jpg)
+
 
 <h2>Project Description</h2>
 
