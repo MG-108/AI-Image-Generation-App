@@ -66,8 +66,7 @@ const Home = () => {
       }, 500)
     );
   };
-
-  console.log(allPosts);
+  
   return (
     <section className="mx-auto max-w-7xl">
       {/* Home header */}
