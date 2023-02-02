@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Loader, Card, FormField } from "../components";
-
-const RenderCards = ({ data, title }) => {
-  if (data?.length > 0) {
-    return data.map((post) => <Card key={post._id} {...post} />);
-  }
-
-  return (
-    <h2 className="mt-5 text-xl font-bold uppercase text-[#6469ff]">{title}</h2>
-  );
-};
+import { Loader, RenderCards, FormField } from "../components";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -66,7 +56,7 @@ const Home = () => {
       }, 500)
     );
   };
-  
+
   return (
     <section className="mx-auto max-w-7xl">
       {/* Home header */}
@@ -91,6 +81,7 @@ const Home = () => {
         />
       </div>
 
+      {/* LOADING POSTS AND SHOWING DATA*/}
       <div className="mt-10">
         {loading ? (
           <div className="flex items-center justify-center">
