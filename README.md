@@ -2,12 +2,11 @@
 
 ![mg-dall-e1](https://user-images.githubusercontent.com/109861614/216188372-d89643ee-3027-4d5e-8ece-5ebd0df467cf.jpg)
 
-
 <h2>Project Description</h2>
 
 <p>The mg-dall-e app is a dynamic and advanced web app that leverages cutting-edge technologies to deliver exceptional results. It utilizes the DALL-E API to create beautiful and unique images, and stores them in the highly-reliable MongoDB database for long-term accessibility.The images can be easily downloaded by users through Cloudinary, which is a cloud-based storage solution optimized for image management.</p>
 
-<p>The app is built with Express, a popular Node.js framework, and also incorporates CORS and Dotenv to handle cross-origin resource sharing and configuration management, respectively. The app is made even more efficient and convenient with the use of the Nodemon package, which automatically restarts the server when changes are made.
+<p>The app is built using React and Tailwind CSS for the front-end and Express for the back-end a popular Node.js framework, and also incorporates CORS and Dotenv to handle cross-origin resource sharing and configuration management, respectively. The app is made even more efficient and convenient with the use of the Nodemon package, which automatically restarts the server when changes are made.
 </p>
 
 <p>
