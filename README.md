@@ -1,6 +1,7 @@
 <h1>MG-DALL-E</h1>
 
-<!-- IMAGE -->
+![mg-dall-e1](https://user-images.githubusercontent.com/109861614/216188372-d89643ee-3027-4d5e-8ece-5ebd0df467cf.jpg)
+
 
 <h2>Project Description</h2>
 
@@ -10,7 +11,7 @@
 </p>
 
 <p>
-  T The integration of the OpenAI API, with its state-of-the-art image generation capabilities, and the other technologies mentioned above, make mg-dall-e a truly remarkable and forward-thinking app.
+   The integration of the OpenAI API, with its state-of-the-art image generation capabilities, and the other technologies mentioned above, make mg-dall-e a truly remarkable and forward-thinking app.
 </p>
 
 <h2>Technologies used in Front-End</h2>
