@@ -1,43 +1,23 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
-import { Loader, RenderCards, FormField } from "../components";
+import { fetchPosts } from "../services/fetchPosts";
+import { Loader, RenderCards, FormField, Error } from "../components";
 
 const Home = () => {
-  const [loading, setLoading] = useState(false);
-  const [allPosts, setAllPosts] = useState(null);
-
   const [searchText, setSearchText] = useState("");
   const [searchedResults, setSearchedResults] = useState(null);
   const [searchTimeout, setSearchTimeout] = useState(null);
+  //https://dall-e-hk0i.onrender.com/api/v1/post
 
-  const fetchPosts = async () => {
-    setLoading(true);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["getPosts"],
+    queryFn: fetchPosts,
+  });
 
-    try {
-      const response = await fetch(
-        "https://dall-e-hk0i.onrender.com/api/v1/post",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        setAllPosts(result.data.reverse());
-      }
-    } catch (err) {
-      alert(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  if (error) {
+    return <Error />;
+  }
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
@@ -46,7 +26,7 @@ const Home = () => {
 
     setSearchTimeout(
       setTimeout(() => {
-        const searchResults = allPosts.filter(
+        const searchResults = data.filter(
           (item) =>
             item.name.toLowerCase().includes(searchText.toLowerCase()) ||
             item.prompt.toLowerCase().includes(searchText.toLowerCase())
@@ -70,25 +50,25 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="mt-16">
-        <FormField
-          labelName="Search posts"
-          type="text"
-          name="text"
-          placehoder="Search posts"
-          value={searchText}
-          handleChange={handleSearchChange}
-        />
-      </div>
-
-      {/* LOADING POSTS AND SHOWING DATA*/}
-      <div className="mt-10">
-        {loading ? (
-          <div className="flex items-center justify-center">
-            <Loader />
+      {isLoading ? (
+        <div className="mt-10 flex items-center justify-center md:mt-20">
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <div className="mt-16">
+            <FormField
+              labelName="Search posts"
+              type="text"
+              name="text"
+              placehoder="Search posts"
+              value={searchText}
+              handleChange={handleSearchChange}
+            />
           </div>
-        ) : (
-          <>
+
+          {/* LOADING POSTS AND SHOWING DATA*/}
+          <div className="mt-10">
             {searchText && (
               <h2 className="mb-3 text-xl font-medium text-[#666e75]">
                 Showing Resuls for{" "}
@@ -96,18 +76,18 @@ const Home = () => {
               </h2>
             )}
             <div className="grid grid-cols-1 gap-3 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-              {searchText ? (
+              {!searchText ? (
+                <RenderCards data={data} title="No Posts Yet" />
+              ) : (
                 <RenderCards
                   data={searchedResults}
                   title="No Search Results Found"
                 />
-              ) : (
-                <RenderCards data={allPosts} title="No Posts Yet" />
               )}
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </section>
   );
 };
